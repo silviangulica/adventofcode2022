@@ -11,6 +11,7 @@ public class SolutionDay2 {
     private final Map<String, String> mapOfWhatCanBeat = new HashMap<>();
 
     private final Map<String, String> mapOfWhatCanLose = new HashMap<>();
+    private final Map<String, String> mapOfWhatIsDraw = new HashMap<>();
 
     private final Map<String, String> mapToMoves = new HashMap<>();
 
@@ -29,6 +30,10 @@ public class SolutionDay2 {
         mapOfWhatCanLose.put("A", "P");
         mapOfWhatCanLose.put("B", "S");
         mapOfWhatCanLose.put("C", "R");
+
+        mapOfWhatIsDraw.put("A", "R");
+        mapOfWhatIsDraw.put("B", "P");
+        mapOfWhatIsDraw.put("C", "S");
     }
 
     public void solveP1() {
@@ -42,10 +47,10 @@ public class SolutionDay2 {
                 String[] splitLine = line.split(" ");
                 if (mapToMoves.containsKey(splitLine[1])) {
                     String player = mapToMoves.get(splitLine[1]);
-                    // Check if there is a win
+                    // Check if there is a loss
                     if (mapOfWhatCanBeat.get(splitLine[0]).equals(player)) {
                         score += mapOfPoints.get(player);
-                        // Check if there is a loss
+                        // Check if there is a win
                     } else if (mapOfWhatCanLose.get(splitLine[0]).equals(player)) {
                         score += mapOfPoints.get(player) + 6;
                     } else {
@@ -71,6 +76,37 @@ public class SolutionDay2 {
 
         System.out.println("Score: " + score);
         System.out.println(mapToMoves);
+    }
+
+    public void solveP2() {
+        int score = 0;
+        try (BufferedReader reader = new BufferedReader(new FileReader("inputs/input_day2.txt"))) {
+            String line;
+            while((line = reader.readLine()) != null) {
+                String[] splitLine = line.split(" ");
+
+                // X -> we need to lose
+                if (splitLine[1].equals("X")) {
+                    score += mapOfPoints.get(mapOfWhatCanBeat.get(splitLine[0]));
+                    continue;
+                }
+
+                // Z -> we need to win
+                if (splitLine[1].equals("Z")) {
+                    score += mapOfPoints.get(mapOfWhatCanLose.get(splitLine[0])) + 6;
+                    continue;
+                }
+
+                // Y -> we need to draw
+                if (splitLine[1].equals("Y")) {
+                    score += mapOfPoints.get(mapOfWhatIsDraw.get(splitLine[0])) + 3;
+                    continue;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Points with strategy 2: " + score);
     }
 
     public String returnMissingKey() {

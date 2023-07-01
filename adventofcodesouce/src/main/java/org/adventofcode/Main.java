@@ -14,6 +14,7 @@ public class Main {
 //        System.out.println("Solution part 2 day 1: " + solD1P2.solve());
 
         SolutionDay2 solD2P1 = new SolutionDay2();
-        solD2P1.solveP1();
+        //solD2P1.solveP1();
+        solD2P1.solveP2();
     }
 }

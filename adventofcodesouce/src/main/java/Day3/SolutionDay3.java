@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class SolutionDay3 {
@@ -44,6 +45,41 @@ public class SolutionDay3 {
         }
         System.out.println("The sum: " + priorities);
     }
+
+    public void solveP2() {
+        int priorities = 0;
+        List<List<Character>> listOfWords = new ArrayList<>();
+        try(BufferedReader reader = new BufferedReader(new FileReader("inputs/input_day3.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                List<Character> lineList = new ArrayList<>();
+
+                for (var element : line.toCharArray()) {
+                    lineList.add(element);
+                }
+
+                listOfWords.add(lineList);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Now, take 3 list at once
+        for (int i = 0; i < listOfWords.size(); i += 3) {
+            List<Character> firstList = listOfWords.get(i).stream().distinct().toList();
+            List<Character> secondList = listOfWords.get(i+1).stream().distinct().toList();
+            List<Character> thirdList = listOfWords.get(i+2).stream().distinct().toList();
+
+            for (var element : firstList) {
+                if (secondList.contains(element) && thirdList.contains(element)) {
+                    priorities += getPriority(element);
+                }
+            }
+        }
+
+        System.out.println("The sum of priorities: " + priorities);
+    }
+
 
     private int getPriority(char item) {
         // For the lowerCase letters

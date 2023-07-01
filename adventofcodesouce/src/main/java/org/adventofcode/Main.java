@@ -4,6 +4,7 @@ import Day1.SolutionDay1Part1;
 import Day1.SolutionDay1Part2;
 import Day2.SolutionDay2;
 import Day3.SolutionDay3;
+import Day4.SolutionDay4;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,8 +19,12 @@ public class Main {
 //        //solD2P1.solveP1();
 //        solD2P1.solveP2();
 
-        SolutionDay3 sold3 = new SolutionDay3();
+//        SolutionDay3 sold3 = new SolutionDay3();
 //        sold3.solveP1();
-        sold3.solveP2();
+//        sold3.solveP2();
+
+        SolutionDay4 sold4 = new SolutionDay4();
+        sold4.solveP1();
+        sold4.solveP2();
     }
 }

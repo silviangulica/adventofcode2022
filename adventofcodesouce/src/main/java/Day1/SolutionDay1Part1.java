@@ -1,14 +1,12 @@
 package Day1;
 
-import Solution.Solution;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class SolutionDay1Part1 implements Solution {
+public class SolutionDay1Part1 {
     Queue<Elf> sortedElfsCalories = new PriorityQueue<>();
     // How many calories is carrying Elf with the mos calories?
     public int solve() {

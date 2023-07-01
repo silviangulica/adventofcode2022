@@ -1,10 +1,8 @@
 package Day1;
 
-import Solution.Solution;
-
 import java.util.Queue;
 
-public class SolutionDay1Part2 implements Solution {
+public class SolutionDay1Part2 {
     Queue<Elf> elves;
     // How many calories are carrying in total the first 3 Elves?
     public int solve() {

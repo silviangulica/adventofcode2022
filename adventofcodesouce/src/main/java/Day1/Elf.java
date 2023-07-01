@@ -14,6 +14,7 @@ public class Elf implements Comparable<Elf> {
         return calories.stream().mapToInt(Integer::intValue).sum();
     }
 
+    // I want the list to be ordered from the biggest to the smallest
     @Override
     public int compareTo(Elf anotherElf) {
         return -Integer.compare(this.getTotalCalories(), anotherElf.getTotalCalories());

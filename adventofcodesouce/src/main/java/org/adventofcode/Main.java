@@ -3,6 +3,7 @@ package org.adventofcode;
 import Day1.SolutionDay1Part1;
 import Day1.SolutionDay1Part2;
 import Day2.SolutionDay2;
+import Day3.SolutionDay3;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,8 +14,11 @@ public class Main {
 //        solD1P2.setElves(solD1P1.getSortedElfsCalories());
 //        System.out.println("Solution part 2 day 1: " + solD1P2.solve());
 
-        SolutionDay2 solD2P1 = new SolutionDay2();
-        //solD2P1.solveP1();
-        solD2P1.solveP2();
+//        SolutionDay2 solD2P1 = new SolutionDay2();
+//        //solD2P1.solveP1();
+//        solD2P1.solveP2();
+
+        SolutionDay3 sold3 = new SolutionDay3();
+        sold3.solveP1();
     }
 }

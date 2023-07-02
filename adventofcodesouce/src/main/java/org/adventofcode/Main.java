@@ -29,6 +29,7 @@ public class Main {
 //        sold4.solveP2();
 
         SolutionDay5 solutionDay5 = new SolutionDay5();
-        solutionDay5.solveP1();
+        //solutionDay5.solveP1();
+        solutionDay5.solveP2();
     }
 }
